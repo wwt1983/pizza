@@ -16,6 +16,7 @@
     "superagent": "^3.5.2"
   },
   "devDependencies": {
+    "css-loader": "^0.28.7",
     "react-scripts": "0.9.5"
   },
   "scripts": {
