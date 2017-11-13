@@ -12,6 +12,7 @@ import {Provider} from 'react-redux'
 import {Router, Route} from 'react-router'
 import Layout from 'containers/layout'
 import Pizza from 'containers/pizza'
+import Basket from 'containers/basket'
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))
 
@@ -24,6 +25,7 @@ ReactDOM.render(
             <Route component = {Layout}>
                  <Route path='/' component={Pizza} />
              </Route>
+            <Route path='/basket' component={Basket} />
         </Router>
     </Provider>,
     document.getElementById('root')
