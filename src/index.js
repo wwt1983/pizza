@@ -31,8 +31,8 @@ ReactDOM.render(
                 <Route path='/about' component={About} />
                 <Route path='/contact' component={Contact} />
                 <Route path='/events' component={Events} />
+                <Route path='/basket' component={Basket} />
              </Route>
-            <Route path='/basket' component={Basket} />
         </Router>
     </Provider>,
     document.getElementById('root')
