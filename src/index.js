@@ -17,11 +17,9 @@ import About from 'containers/about'
 import Contact from 'containers/contact'
 import Events from 'containers/events'
 
-
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))
 
 const history = syncHistoryWithStore(browserHistory, store)
-
 
 ReactDOM.render(
     <Provider store={store}>
