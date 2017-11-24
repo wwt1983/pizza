@@ -1,64 +1,30 @@
-var path = require('path')
-var webpack = require('webpack')
-var autoprefixer = require('autoprefixer');
-var precss = require('precss');
-var HappyPack = require('happypack')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
+
 
 module.exports = {
+    devtool: 'cheap-module-eval-source-map',
     entry: [
         'babel-polyfill',
-        './src/index'
+        __dirname + '/src/index'
     ],
     output: {
-        path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js',
-        publicPath: '/static/'
+        path: __dirname + '/build',
+        filename: 'bundle.js'
     },
-    resolve: {
-        modulesDirectories: ["node_modules"]
-    },
-    plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            compressor: {
-                warnings: false,
-            }
-        }),
-        new HappyPack({
-            id: 'js',
-            loaders: ['babel-loader?cacheDirectory'],
-            threads: 4
-        })
-    ],
     module: {
         loaders: [
             {
-                test: /\.js$/,
-                loaders: ['happypack/loader?id=js'],
+                loaders: ['react-hot', 'babel-loader'],
                 include: [
-                    path.resolve(__dirname, "src"),
+                    path.resolve(__dirname, 'src')
                 ],
-                plugins: ['transform-runtime'],
-                exclude: 'node_modules'
+                test: /\.js$/,
+                plugins: ['transform-runtime']
             },
-            /* {
-                 test: /\.jsx$/,
-                 loaders: ['happypack/loaders?id=jsx'],
-                 include: [
-                   path.resolve(__dirname, "src"),
-                 ],
-                 plugins: ['transform-runtime'],
-                 exclude: /node_modules/
-             },*/
             {
                 test:   /\.css$/,
-                loader: "style-loader!css-loader"
+                loader: 'style-loader!css-loader!postcss-loader'
             },
             {
                 test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -66,12 +32,12 @@ module.exports = {
             },
             {
                 test:   /\.png$/,
-                loader: "file-loader"
+                loader: 'file-loader'
             },
             {test: /\.json$/, loader: 'json'}
         ]
     },
-    postcss: function () {
-        return [autoprefixer, precss];
-    }
-}
+    plugins: [
+        new HtmlWebpackPlugin()
+            ]
+};
