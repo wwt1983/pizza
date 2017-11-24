@@ -14,11 +14,13 @@ app.use(webpackHotMiddleware(compiler))
 app.use(express.static(__dirname + '/public'))
 // Handles all routes so you do not get a not found error
 
-app.get('/', function (request, response){
+
+app.get('/', function (){
     console.log('main server page')
     response.sendFile(__dirname + '/public/' + 'index.html')
 
 })
+
 
 app.get('*', function (request, response){
     response.sendFile(__dirname + '/public/' + 'index.html')
