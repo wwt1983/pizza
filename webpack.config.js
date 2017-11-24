@@ -1,4 +1,3 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
 
@@ -36,8 +35,5 @@ module.exports = {
             },
             {test: /\.json$/, loader: 'json'}
         ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin()
-            ]
+    }
 };

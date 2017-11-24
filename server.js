@@ -15,18 +15,15 @@ app.use(express.static(__dirname + '/public'))
 // Handles all routes so you do not get a not found error
 
 
-app.get('/', function (){
-    console.log('main server page')
+app.get('/', function (req, res) {
+    console.log('hello world')
     response.sendFile(__dirname + '/public/' + 'index.html')
-
 })
-
-
 app.get('*', function (request, response){
     response.sendFile(__dirname + '/public/' + 'index.html')
 })
 
-var PORT = 3004;
-app.listen(PORT, function () {
-    console.log('server express listen')
+const port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log('server express listen PORT ' + port)
 })
