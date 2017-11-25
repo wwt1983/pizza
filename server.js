@@ -25,7 +25,7 @@ app.post('/sendemail', (req, res) => {
     if (!req.body.order) {
         return res.status(400).send({error: true, message: 'Please provide order'});
     }else {
-        let transporter = nodeMailer.createTransport({host: 'smtp.yandex.ru', port: 465, auth: {user: 'info@mozzarella174.ru', pass: 'poddiluigi' }});
+        let transporter = nodeMailer.createTransport({service: 'yandex', port: 587, secure: false, auth: {user: 'info@mozzarella174.ru', pass: 'poddiluigi' }});
         //письмо о заказе нам
         let mailOptions = serverFunctions.mailerOptions(req.body.order);
         transporter.sendMail(mailOptions, (error, info) => {

@@ -1,20 +1,20 @@
 module.exports = {
     returnJsonObj : (obj) => {
-      return JSON.stringify(obj)
+        return JSON.stringify(obj)
     },
     mailerOptions : (obj) => {
-    return {
-        from: '"Pizza Mozzarella" <info@mozzarella174.ru', // sender address
-        to: 'wwt1983@yandex.ru', // list of receivers
-        subject: 'Заказ с сайта', // Subject line
-        //text: 'Заказ: тел: ' + obj.phone + '\n имя: ' + obj.name + '\n адресс: ' + obj.address + '\n стоимость: ' + obj.price + '\n позиции ' + obj.info, // plain text body
-        html: '<strong>Заказ </strong>' +
-        '<br/> Тел: ' + obj.phone +
-        '<br/> Имя: ' + obj.name +
-        '<br/> Адрес: ' + obj.address +
-        '<br/> Общая стоимость: заказа: ' + obj.price + ' руб. <br/>' +
-        '<br/> Позиции ' + JSON.stringify(obj.info) + ']'// html body
-    };
+        return {
+            from: '"Pizza Mozzarella" <info@mozzarella174.ru', // sender address
+            to: 'wwt1983@yandex.ru, dariko2@yandex.ru, sv83a@ya.ru', // list of receivers
+            subject: 'Заказ с сайта', // Subject line
+            //text: 'Заказ: тел: ' + obj.phone + '\n имя: ' + obj.name + '\n адресс: ' + obj.address + '\n стоимость: ' + obj.price + '\n позиции ' + obj.info, // plain text body
+            html: '<strong>Заказ </strong>' +
+            '<br/> Тел: ' + obj.phone +
+            '<br/> Имя: ' + obj.name +
+            '<br/> Адрес: ' + obj.address +
+            '<br/> Общая стоимость: заказа: ' + obj.price + ' руб. <br/>' +
+            '<br/> Позиции ' + JSON.stringify(obj.info) + ']'// html body
+        };
     },
     mailerOptionsForClient : (email) => {
         return {
