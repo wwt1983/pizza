@@ -25,7 +25,7 @@ app.post('/sendemail', (req, res) => {
     if (!req.body.order) {
         return res.status(400).send({error: true, message: 'Please provide order'});
     }else {
-        let transporter = nodeMailer.createTransport({ host: 'smtp.gmail.com', port: 465, secure: true, auth:{ user: 'piratridze@gmail.com', pass: 'pirat1983' }});
+        let transporter = nodeMailer.createTransport({host: 'smtp.yandex.ru', port: 465, auth: {user: 'info@mozzarella174.ru', pass: 'poddiluigi' }});
         //письмо о заказе нам
         let mailOptions = serverFunctions.mailerOptions(req.body.order);
         transporter.sendMail(mailOptions, (error, info) => {
