@@ -19,6 +19,7 @@ module.exports = {
                     path.resolve(__dirname, 'src')
                 ],
                 test: /\.js$/,
+                exclude: /'node_modules'/,
                 plugins: ['transform-runtime']
             },
             {
