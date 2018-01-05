@@ -1,3 +1,6 @@
+body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
 #page-preloader {
     position: fixed;
     left: 0;
