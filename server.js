@@ -13,7 +13,7 @@ var compiler = webpack(config)
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
 app.use(webpackHotMiddleware(compiler))
 app.use(cors());
-app.use(bodyParser.json({limit: '50mb'}))
+app.use(bodyParser.json({ limit: '50mb' }))
 // serve static assets normally
 app.use(express.static(__dirname + '/public'))
 
@@ -21,11 +21,11 @@ var serverFunctions = require('./serverFunctions');
 
 
 app.post('/sendemail', (req, res) => {
-    console.log('test send req.body order: '+  serverFunctions.returnJsonObj(req.body.order))
+    console.log('test send req.body order: ' + serverFunctions.returnJsonObj(req.body.order))
     if (!req.body.order) {
-        return res.status(400).send({error: true, message: 'Please provide order'});
-    }else {
-        let transporter = nodeMailer.createTransport({service: 'yandex', port: 587, secure: false, auth: {user: 'info@mozzarella174.ru', pass: 'poddiluigi' }});
+        return res.status(400).send({ error: true, message: 'Please provide order' });
+    } else {
+        let transporter = nodeMailer.createTransport({ service: 'yandex', port: 587, secure: false, auth: { user: 'info@mozzarella174.ru', pass: 'poddiluigi' } });
         //письмо о заказе нам
         let mailOptions = serverFunctions.mailerOptions(req.body.order);
         transporter.sendMail(mailOptions, (error, info) => {
@@ -44,7 +44,7 @@ app.post('/sendemail', (req, res) => {
     }
 });
 
-app.get('*', function (request, response){
+app.get('*', function (request, response) {
     response.sendFile(__dirname + '/public/' + 'index.html')
 });
 
