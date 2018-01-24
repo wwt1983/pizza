@@ -23,7 +23,7 @@ module.exports = {
     },
     mailerOptionsForClient: (email) => {
         return {
-            from: '"Pizza Mozzarella" <info@mozzarella174.ru', // sender address
+            from: '"Pizza Mozzarella" <info@mozzarella174.ru>', // sender address
             to: email, // list of receivers
             subject: 'Заказ с сайта пиццерии-траттории Моццарелла', // Subject line
             html: 'Спасибо, Ваш заказ принят к обработке.<br/><image src="/upload/mozzarella_logo.png" />'
