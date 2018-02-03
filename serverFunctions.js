@@ -9,7 +9,7 @@ module.exports = {
         }
         
         return {
-            from: '"Pizza Mozzarella" <info@mozzarella174.ru', // sender address
+            from: '"Pizza Mozzarella" <info@mozzarella174.ru>', // sender address
             to: 'wwt1983@yandex.ru, dariko2@yandex.ru, sv83a@ya.ru, info@mozzarella174.ru', // list of receivers
             subject: 'Заказ с сайта', // Subject line
             //text: 'Заказ: тел: ' + obj.phone + '\n имя: ' + obj.name + '\n адресс: ' + obj.address + '\n стоимость: ' + obj.price + '\n позиции ' + obj.info, // plain text body

@@ -12,6 +12,7 @@ var compiler = webpack(config)
 
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
 app.use(webpackHotMiddleware(compiler))
+
 app.use(cors());
 app.use(bodyParser.json({ limit: '50mb' }))
 // serve static assets normally
@@ -50,7 +51,7 @@ app.get('*', function (request, response) {
 
 
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3005;
 app.listen(port, function () {
     console.log('server express listen PORT ' + port)
 });
