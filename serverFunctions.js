@@ -17,6 +17,7 @@ module.exports = {
                 '<br/> Тел: ' + obj.phone +
                 '<br/> Имя: ' + obj.name +
                 '<br/> Адрес: ' + obj.address +
+                '<br/> Комментарий: '   + obj.msg +
                 '<br/> Общая стоимость: заказа: ' + obj.price + ' руб. <br/>' +
                 '<br/>  ' + txt // html body
         };
